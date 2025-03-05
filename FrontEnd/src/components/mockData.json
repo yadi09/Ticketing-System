@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "department": "Technical",
+        "subject": "PHP Configuration Issue",
+        "message": "PHP Configuration Issue is a problem that occurs when the PHP configuration settings are incorrect or misconfigured.",
+        "priority": "High",
+        "status": "Open",
+        "date": "2023-10-01"
+    },
+    {
+        "id": 2,
+        "department": "Sales",
+        "subject": "New Client Onboarding",
+        "message": "New Client Onboarding is the process of welcoming and integrating new clients into your business.",
+        "priority": "Medium",
+        "status": "Closed",
+        "date": "2023-09-25"
+    },
+    {
+        "id": 3,
+        "department": "Marketing",
+        "subject": "Campaign Performance Review",
+        "message": "Campaign Performance Review is the process of evaluating the effectiveness of a marketing campaign.",
+        "priority": "Low",
+        "status": "Open",
+        "date": "2023-10-05"
+    },
+    {
+        "id": 4,
+        "department": "Technical",
+        "subject": "Server Downtime",
+        "message": "Server Downtime is the period of time when a server is not operational or available to users.",
+        "priority": "High",
+        "status": "Open",
+        "date": "2023-10-03"
+    },
+    {
+        "id": 5,
+        "department": "Sales",
+        "subject": "Contract Renewal",
+        "message": "Contract Renewal is the process of extending or renewing a contract with a customer or client.",
+        "priority": "Medium",
+        "status": "Open",
+        "date": "2023-09-30"
+    },
+    {
+        "id": 6,
+        "department": "Marketing",
+        "subject": "Social Media Strategy",
+        "message": "Social Media Strategy is a plan to use social media to achieve business goals.",
+        "priority": "Low",
+        "status": "Closed",
+        "date": "2023-09-28"
+    },
+    {
+        "id": 7,
+        "department": "Technical",
+        "subject": "Database Migration",
+        "message": "Database Migration is the process of transferring data between different storage types, formats, or computer systems.",
+        "priority": "High",
+        "status": "Closed",
+        "date": "2023-09-27"
+    },
+    {
+        "id": 8,
+        "department": "Sales",
+        "subject": "Product Demo Request",
+        "message": "Product Demo Request is a request from a potential customer to see a demonstration of your product or service.",
+        "priority": "Medium",
+        "status": "Open",
+        "date": "2023-10-02"
+    },
+    {
+        "id": 9,
+        "department": "Marketing",
+        "subject": "Email Campaign Setup",
+        "message": "API Integration Issue is a problem that occurs when trying to integrate two or more systems using an API.",
+        "priority": "Low",
+        "status": "Open",
+        "date": "2023-10-04"
+    },
+    {
+        "id": 10,
+        "department": "Technical",
+        "subject": "API Integration Issue",
+        "message": "API Integration Issue is a problem that occurs when trying to integrate two or more systems using an API.",
+        "priority": "High",
+        "status": "Open",
+        "date": "2023-09-29"
+    },
+    {
+        "id": 11,
+        "department": "Sales",
+        "subject": "Customer Feedback Analysis",
+        "message": "Customer Feedback Analysis is a process of analyzing customer feedback to improve customer satisfaction and loyalty.",
+        "priority": "Medium",
+        "status": "Closed",
+        "date": "2023-09-26"
+    },
+    {
+        "id": 12,
+        "department": "Marketing",
+        "subject": "SEO Optimization",
+        "message": "SEO optimization is the process of optimizing your website to rank higher in search engine results pages (SERPs).",
+        "priority": "Low",
+        "status": "Open",
+        "date": "2023-10-06"
+    }
+]
