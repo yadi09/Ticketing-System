@@ -21,7 +21,7 @@ const NavBar = () => {
 
                         {/* Only show "Create User" for admins */}
                         {currentUser?.role === "admin" && (
-                            <Link to="/create-user" className="text-white">Create User</Link>
+                            <Link to="#" className="text-white">Create User</Link>
                         )}
                     </div>
 
