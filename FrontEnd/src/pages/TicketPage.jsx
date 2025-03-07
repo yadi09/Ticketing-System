@@ -7,6 +7,12 @@ import RecentTicket from '../components/RecentTicket';
 import Support from '../components/Support';
 
 const Ticket = () => {
+    // Mock user data
+    const user = {
+        _id: "67ca37618086d8b09ba4d904",
+        name: "Yadi",
+        email: "yadi@gmail.com",
+    };
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
@@ -20,7 +26,7 @@ const Ticket = () => {
 
                 {/* Right Side: Open Ticket Form */}
                 <div className="w-full lg:w-3/4">
-                    <OpenTicket />
+                    <OpenTicket user={user} />
                 </div>
             </section>
             <Footer />
