@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+console.log(apiUrl); // This should print your backend API URL
+
 // Set your backend API URL
-const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Create an Axios instance
 const API = axios.create({ baseURL: API_BASE_URL });
