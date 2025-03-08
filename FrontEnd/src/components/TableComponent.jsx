@@ -15,9 +15,6 @@ const TableComponent = ({ tickets }) => {
         )
     );
 
-    console.log("tttttttttt", tickets);
-    console.log("filteredTickets", filteredTickets);
-
     // Pagination logic
     const indexOfLastTicket = currentPage * ticketsPerPage;
     const indexOfFirstTicket = indexOfLastTicket - ticketsPerPage;
