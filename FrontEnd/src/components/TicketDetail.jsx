@@ -21,6 +21,8 @@ const TicketDetail = ({ ticket, currentUser }) => {
     const handleUpdateTicket = async () => {
         const data = { status, adminReply };
         await updateTicket(ticket._id, data); // Call the context's updateTicket method
+        // refresh the page
+        window.location.reload();
     };
 
     return (

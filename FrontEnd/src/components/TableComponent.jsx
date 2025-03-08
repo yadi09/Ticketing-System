@@ -15,6 +15,9 @@ const TableComponent = ({ tickets }) => {
         )
     );
 
+    console.log("tttttttttt", tickets);
+    console.log("filteredTickets", filteredTickets);
+
     // Pagination logic
     const indexOfLastTicket = currentPage * ticketsPerPage;
     const indexOfFirstTicket = indexOfLastTicket - ticketsPerPage;
@@ -53,6 +56,11 @@ const TableComponent = ({ tickets }) => {
             case 'Closed': return 'bg-gray-500';
             default: return 'bg-gray-500';
         }
+    };
+
+    // Helper function to safely convert string to uppercase
+    const safeToUpperCase = (value) => {
+        return value && typeof value === 'string' ? value.toUpperCase() : value;
     };
 
     return (
@@ -103,15 +111,24 @@ const TableComponent = ({ tickets }) => {
                                         <td className="py-2 px-4 border">{ticket.subject}</td>
                                         <td className="py-2 px-4 border">
                                             <span className={`px-2 py-1 rounded-full text-white ${getBadgeColor(ticket.priority)}`}>
-                                                {ticket.priority.toUpperCase()}
+                                                {safeToUpperCase(ticket.priority)}
                                             </span>
                                         </td>
                                         <td className="py-2 px-4 border">
                                             <span className={`px-2 py-1 rounded-full text-white ${getBadgeColor(ticket.status)}`}>
-                                                {ticket.status.toUpperCase()}
+                                                {safeToUpperCase(ticket.status)}
                                             </span>
                                         </td>
-                                        <td className="py-2 px-4 border">{new Date(ticket.date).toLocaleDateString()}</td>
+                                        <td className="py-2 px-4 border">
+                                            {ticket.createdAt ?
+                                                new Date(ticket.createdAt).toLocaleDateString('en-US', {
+                                                    weekday: 'long',
+                                                    year: 'numeric',
+                                                    month: 'long',
+                                                    day: 'numeric'
+                                                })
+                                                : "N/A"}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

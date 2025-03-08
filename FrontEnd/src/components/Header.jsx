@@ -2,9 +2,16 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../assets/saas logo.jpg";
 import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
+import { TicketContext } from '../context/TicketContext'; // Import the TicketContext
 
 const Header = () => {
     const { user, logoutUser } = useContext(AuthContext); // Get user and logoutUser from context
+    const { setTickets } = useContext(TicketContext); // Get setTickets from context
+
+    const handleLogout = () => {
+        // Trigger logout when user clicks on the logout button
+        logoutUser(setTickets);
+    };
 
     return (
         <header className="flex justify-between items-center p-4 border-b">
@@ -15,7 +22,7 @@ const Header = () => {
                 {user ? (
                     // If user is logged in, show the logout button
                     <button
-                        onClick={logoutUser}
+                        onClick={handleLogout}
                         className="text-blue-600"
                     >
                         Logout

@@ -17,6 +17,7 @@ export const TicketProvider = ({ children }) => {
             const response = await createTicket(ticketData);
             setTickets((prev) => [...prev, response.data]);
             setLoading(false);
+            fetchTickets(); // Fetch fresh tickets after creating a new ticket
             return { success: true, message: "Ticket created successfully!" };
         } catch (error) {
             setError(error.response?.data?.message || "Failed to create ticket");
@@ -77,6 +78,8 @@ export const TicketProvider = ({ children }) => {
     return (
         <TicketContext.Provider
             value={{
+                fetchTickets,
+                setTickets,
                 tickets,
                 selectedTicket,
                 loading,

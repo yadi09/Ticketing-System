@@ -1,19 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom"; // ✅ Import BrowserRouter
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
-import { AuthProvider } from "./context/AuthContext"; // ✅ Import AuthProvider
-import { TicketProvider } from "./context/TicketContext"; // ✅ Import TicketProvider
+import { AuthProvider } from "./context/AuthContext";
+import { TicketProvider } from "./context/TicketContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter> {/* ✅ Wrap everything inside BrowserRouter */}
-      <AuthProvider>
-        <TicketProvider> {/* ✅ Wrap App inside TicketProvider */}
+    <BrowserRouter>
+      <TicketProvider>
+        <AuthProvider>
           <App />
-        </TicketProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </TicketProvider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
-const RecentTicket = () => {
+const RecentTicket = ({ tickets = [] }) => {
     const [isOpen, setIsOpen] = useState(true);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
-    const tickets = [
-        { id: 461327, title: 'PHP Configuration', status: 'Closed', date: '7 months ago' },
-        { id: 509838, title: "I can't access my plesk C...", status: 'Closed', date: '8 months ago' },
-        { id: 550463, title: 'Accessing via SSH', status: 'Closed', date: '8 months ago' },
-    ];
+    // Sort tickets by date (most recent first) and take the top 3
+    const recentTickets = [...tickets]
+        .filter(ticket => ticket.createdAt) // Ensure createdAt exists
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by date (descending)
+        .slice(0, 3); // Get top 3
 
     return (
         <div className="bg-white p-4 rounded-lg shadow-md">
@@ -24,11 +24,20 @@ const RecentTicket = () => {
             </div>
             {isOpen && (
                 <div className="mt-2 space-y-2">
-                    {tickets.map(ticket => (
+                    {recentTickets.map(ticket => (
                         <a key={ticket.id} href="#" className="block p-2 hover:bg-gray-100 rounded">
-                            <div className="text-blue-600">{ticket.title}</div>
+                            <div className="text-blue-600">{ticket.subject}</div>
                             <small className="text-gray-500">
-                                <span>{ticket.date}</span>
+                                <span>
+                                    {ticket.createdAt ?
+                                        new Date(ticket.createdAt).toLocaleDateString('en-US', {
+                                            weekday: 'long',
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })
+                                        : "N/A"}
+                                </span>
                                 <span className="ml-2 text-red-500">{ticket.status}</span>
                             </small>
                         </a>

@@ -17,7 +17,7 @@ const Tickets = () => {
             <NavBar />
             <section className="flex flex-col lg:flex-row p-4 gap-4 flex-grow">
                 <div className="w-full lg:w-1/4 space-y-4">
-                    <RecentTicket />
+                    <RecentTicket tickets={tickets} />
                     <Support />
                 </div>
                 <div className="w-full lg:w-3/4">

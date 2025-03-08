@@ -1,6 +1,7 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { loginUser, registerUser } from "../api/auth";
 import { useNavigate } from "react-router-dom";
+import { TicketContext } from "../context/TicketContext";  // Import TicketContext
 
 // Create Context
 export const AuthContext = createContext();
@@ -10,6 +11,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem("accessToken") || "");
     const navigate = useNavigate();
+    const { setTickets, fetchTickets } = useContext(TicketContext);  // Access TicketContext
 
     // Load user from localStorage on app start
     useEffect(() => {
@@ -43,7 +45,6 @@ export const AuthProvider = ({ children }) => {
     const handleLogin = async (credentials) => {
         try {
             const response = await loginUser(credentials);
-
             const { accessToken, user } = response.data;
 
             // Store in state
@@ -53,6 +54,9 @@ export const AuthProvider = ({ children }) => {
             // Store in localStorage
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("user", JSON.stringify(user));
+
+            // Fetch fresh tickets for the logged-in user
+            fetchTickets();  // Fetch fresh tickets after login
 
             // Redirect to tickets page
             navigate("/tickets");
@@ -89,6 +93,9 @@ export const AuthProvider = ({ children }) => {
     const logoutUser = () => {
         setUser(null);
         setToken("");
+
+        // Clear tickets from TicketContext when logging out
+        setTickets([]);  // Clear tickets
 
         localStorage.removeItem("accessToken");
         localStorage.removeItem("user");

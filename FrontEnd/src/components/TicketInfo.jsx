@@ -40,7 +40,16 @@ const TicketInfo = ({ ticket }) => {
                         <small className="text-gray-500">
                             <span>Date</span>
                         </small>
-                        <div className="text-blue-600">{ticket.date}</div>
+                        <div className="text-blue-600">
+                            {ticket.createdAt ?
+                                new Date(ticket.createdAt).toLocaleDateString('en-US', {
+                                    weekday: 'long',
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })
+                                : "N/A"}
+                        </div>
                     </p>
                 </div>
             )}

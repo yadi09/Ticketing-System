@@ -4,9 +4,6 @@ import { TicketContext } from "../context/TicketContext"; // Import TicketContex
 const OpenTicket = ({ user }) => {
     const { handleCreateTicket } = useContext(TicketContext); // Get the createTicket function from context
 
-    const UserName = "yadi";
-    const UserEmail = "yadi@gmail.com";
-
     // State for form fields
     const [formData, setFormData] = useState({
         subject: "",
@@ -78,11 +75,11 @@ const OpenTicket = ({ user }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="Name" className="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" name="name" id="Name" value={UserName} disabled className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        <input type="text" name="name" id="Name" value={user.name} disabled className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                     </div>
                     <div>
                         <label htmlFor="Email" className="block text-sm font-medium text-gray-700">Your Email Address</label>
-                        <input type="email" name="email" id="Email" value={UserEmail} disabled className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        <input type="email" name="email" id="Email" value={user.email} disabled className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                     </div>
                 </div>
                 <div>
